@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var fun;
+      // 1. 会把所有函数声明提升到当前作用域的最前面
+      // 2. 只提升函数声明，不提升函数调用
+      fun(); // hello world
+      function fun() {
+        console.log("hello world");
+      }
+
+      // 函数表达式 必须先声明和赋值， 后调用 否则 报错
+      // fun2() // ReferenceError: Cannot access 'fun' before initialization
+      var fun2 = function () {
+        console.log("hello world");
+      };
+
+      // 3. 变量提升
+      // 变量提升到当前作用域的最前面
+      console.log(a); // undefined
+      var a = 1;
+
+      // 4. let 和 const 不提升
+      console.log(b); // ReferenceError: Cannot access 'b' before initialization
+      let b = 2;
+      console.log(c); // ReferenceError: Cannot access 'c' before initialization
+      const c = 3;
+    </script>
+  </body>
+</html>

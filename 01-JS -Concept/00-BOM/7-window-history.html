@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-history对象</title>
+</head>
+
+<body>
+    <button>后退</button>
+    <button>前进</button>
+    
+    <!-- Adding navigation links to test history functionality -->
+    <div style="margin-top: 20px;">
+        <p><strong>注意：</strong> 要使历史导航按钮生效，需要有浏览历史记录。请先使用以下链接进行导航测试：</p>
+        <p><a href="7-window-history.html">当前页面</a> | <a href="7-window-history-page2.html">测试页面</a></p>
+    </div>
+
+    <script>
+      const back = document.querySelector('button:first-child');
+      const forward = back.nextElementSibling;
+      
+      back.addEventListener('click', function () {
+          // Using history.back() for better readability
+          history.back(); // Equivalent to history.go(-1)
+      });
+      
+      forward.addEventListener('click', function () {
+          // Using history.forward() for better readability
+          history.forward(); // Equivalent to history.go(1)
+      });
+
+        // history的数据类型是对象，主要管理历史记录，该对象与浏览器地址栏的操作想对应，如前进、后退、历史记录等
+        // history对象方法  作用
+        // back()  可以后退功能
+        // forward()  前进功能
+        // go(参数)  前进后退功能，参数如果是1，前进一个页面；如果是-1，后退一个页面
+        // history对象一般在实际开发中比较少用，但是会在一些OA办公系统中见到。
+        
+        // 注意：history.go(), history.back()和history.forward()只有在存在浏览历史记录时才能正常工作
+        // 如果没有浏览历史（如直接打开页面）这些方法将不起作用
+    </script>
+</body>
+
+</html>

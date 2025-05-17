@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-localStorage存储</title>
+</head>
+
+<body>
+    <script>
+        localStorage.setItem("name", "hello");
+        console.log(localStorage.getItem("name")); // hello
+        
+
+
+        // 总结：
+        // 1.localStorage作用是什么？
+        //     可以将数据永久存储在本地（用户的电脑），除非手动删除，否则关闭页面也会存在
+        // 2.localStorage存储，获取，删除的语法是什么？
+        //     存储：localStorage.setItem(key, value)
+        //     获取：localStorage.getItem(key)
+        //     删除：localStorage.removeItem(key)
+    </script>
+</body>
+
+</html>

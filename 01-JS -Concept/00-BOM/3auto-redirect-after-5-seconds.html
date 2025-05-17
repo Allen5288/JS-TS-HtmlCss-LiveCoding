@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-5秒之后自动跳转页面</title>
+    <style>
+      span {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="https://www.google.com" id="link">redirect in 5 secs</a>
+    <script>
+      const link = document.querySelector("a");
+      let num = 5;
+      let timeId = setInterval(() => {
+        num--;
+        link.innerHTML = `payment successful, redirect in <span>${num}</span> secs`;
+        if (num === 0) {
+          clearInterval(timeId);
+          // location.href = "https://www.google.com";
+          window.location.href = "https://www.google.com";
+        }
+      }, 1000);
+
+      // location的数据类型是对象，它拆分并保存了URL地址的各个组成部分
+      // 常用属性和方法：
+      //     search属性获取地址中携带的参数，符号 ? 后面的部分
+      //         console.log(location.search)
+      //     hash属性获取地址中的哈希值，符合#后面部分
+      //         console.log(location.hash)
+      //         后期vue路由的铺垫，经常用于不刷新页面，显示不同页面，比如：网易云音乐
+      //     reload方法用来刷新当前页面，传入参数true时表示强制刷新
+      /*
+            <button>点击刷新</button>
+            <scrip>
+                let btn = document.querySelector('button')
+                btn.addEventListener('click', function () {
+                    location.reload(true)
+                    // 强制刷新 类似 Ctrl+F5
+                })
+            </scrip>
+        */
+    </script>
+  </body>
+</html>

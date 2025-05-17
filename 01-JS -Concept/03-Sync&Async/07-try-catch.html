@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>123</p>
+  <script>
+    function fn() {
+      try {
+        const p = document.querySelector('.p');
+        p.style.color = 'red'; // This will throw an error because the element does not exist
+        // Additional logic can be added here to handle the selected element
+      } catch (error) {
+        // have error message but program continues
+        console.error("Error occurred: " + error.message);
+      }
+      finally {
+        // This block will always execute, regardless of whether an error occurred or not
+        console.log("This will always run, regardless of errors.");
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-location对象</title>
+  </head>
+
+  <body>
+    <button class="reload" onclick="showLocation()">showLocation</button>
+    <button onclick="goToGoogle()">goToGoogle</button>
+    <button onclick="window.location.reload()">reload</button>
+    <script>
+      // console.log(window.location)
+      // console.log(location)
+      // console.log(location.href)
+      // 1. href 经常用href，利用js的方法去跳转页面
+
+      function showLocation() {
+        alert(
+          "full url -" +
+            window.location.href +
+            "\n" +
+            "hosename" +
+            window.location.hostname +
+            "\n" +
+            "pathname" +
+            window.location.pathname +
+            "\n" +
+            "search" +
+            window.location.search +
+            "\n" +
+            "hash" +
+            window.location.hash
+        );
+      }
+
+      function goToGoogle() {
+        window.location.href = "https://www.google.com";
+      }
+
+      // location对象
+      // location的数据类型是对象，它拆分并保存了URL地址的各个组成部分。
+
+      // 总结：
+      // location.href属性获取完整的URL地址，对其赋值时用于地址跳转
+      // search属性获取地址中携带的参数，符号 ? 后面部分
+      // hash属性获取地址中的哈希值，符号 # 后面部分
+      // reload方法用来刷新当前页面，传入参数true时表示强制刷新
+    </script>
+  </body>
+</html>

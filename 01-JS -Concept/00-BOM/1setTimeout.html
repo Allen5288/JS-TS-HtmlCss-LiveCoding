@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-5秒自动关闭的广告</title>
+    <style></style>
+  </head>
+
+  <body>
+    <img src="./images/kitten.jpg" alt="" />
+    <script>
+      const img = document.querySelector("img");
+      setTimeout(function () {
+        // 让图片淡出
+        img.style.opacity = 0;
+      }, 2000);
+    </script>
+  </body>
+</html>
+<!-- JavaScript内置的一个用来让代码延迟的函数，叫setTimeout
+语法：
+setTimeout(回调函数, 等待的毫秒数)
+setTimeout仅仅只执行一次，所以可以理解为就是把一段代码延迟执行，平时省略window
+清除延时函数：
+let timer = setTimeout(回调函数, 等待的毫秒数)
+clearTimeout(timer) -->

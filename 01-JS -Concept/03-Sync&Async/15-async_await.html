@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async/await 是基于 Promise 的语法糖，用于更简洁地处理异步操作
+        // async 函数返回一个 Promise 对象
+        
+        const butFruit = (fruit) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (fruit === "apple") {
+                        resolve("Apple is ready!");
+                    } else {
+                        reject("Sorry, we only have apples.");
+                    }
+                }, 2000);
+            });
+        }
+
+        const fetchFruit = async (fruit) => {
+            try {
+                const result = await butFruit(fruit);
+                console.log(result); // output: "Apple is ready!"
+            } catch (error) {
+                console.error(error); // output: "Sorry, we only have apples."
+            }
+        }
+        
+        fetchFruit("apple"); // output: "Apple is ready!"
+        fetchFruit("banana"); // output: "Sorry, we only have apples."
+
+    </script>
+</body>
+</html>

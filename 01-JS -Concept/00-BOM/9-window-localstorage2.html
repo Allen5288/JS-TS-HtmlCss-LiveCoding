@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-本地存储复杂数据类型</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            username: 'ally',
+            age: 18,
+            gender: 'female'
+        }
+        // 存储 复杂数据类型  无法直接使用
+        // localStorage.setItem('obj', obj) // [object, object]
+        // // 取
+        // console.log(localStorage.getItem('obj'))
+
+        // 复杂数据类型存储必须转换为JSON字符串存储
+
+        // JSON对象 属性和值有引号，而是引号统一是双引号
+        // JSON.stringify() 将对象转换为JSON字符串
+        const objStr = JSON.stringify(obj)
+        localStorage.setItem('obj', objStr)
+        // 取
+        const objStr2 = localStorage.getItem('obj')
+        // JSON.parse() 将JSON字符串转换为对象
+        const obj2 = JSON.parse(objStr2)
+
+       
+        
+        console.log(obj2); // 输出对象
+    </script>
+</body>
+
+</html>

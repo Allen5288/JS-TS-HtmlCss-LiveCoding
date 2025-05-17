@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-页面滚动事件</title>
+    <style>
+        body {
+            padding-top: 100px;
+            height: 3000px;
+        }
+
+        div {
+            display: none;
+            margin: 100px;
+            overflow: scroll;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        #backTop {
+            display: none;
+            position: fixed;
+            width: 150px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+       hello world
+    </div>
+    <div id="backTop">scroll to top</div>
+
+    <script>
+       const content = document.querySelector('div');
+       const backTop = document.getElementById('backTop');
+       window.addEventListener('scroll', function () {
+            const distanceToTop = document.documentElement.scrollTop;
+            if(distanceToTop > 100) {
+                content.style.display = 'block';
+                backTop.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+                backTop.style.display = 'none';
+            }
+        });
+
+        backTop.addEventListener('click', function () {
+            // scrollTo()方法可以让页面滚动到指定位置
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 平滑滚动
+            });
+        });
+
+
+        // 页面滚动事件-获取位置
+        // scrollLeft和scrollTop（属性）
+        // 得到是什么数据  数字型 不带单位
+        //     获取被卷去的大小
+        //     获取元素内容往左、往上滚出去看不到的距离
+        //     这两个值是可读写的
+        // 尽量在scroll事件里面获取被卷去的距离
+
+    </script>
+</body>
+
+</html>

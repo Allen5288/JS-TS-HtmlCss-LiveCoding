@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Promise.all()：用于并行执行多个异步操作，并在所有操作完成时返回结果
+        const promise1 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Result from promise 1");
+            }, 1000);
+        });
+        const promise2 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Result from promise 2");
+            }, 2000);
+        });
+        const promise3 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Result from promise 3");
+            }, 3000);
+        });
+        const promise4 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject("Error from promise 4");
+            }, 1500);
+        });
+
+        Promise.all([promise1, promise2, promise3, promise4])
+            .then((results) => {
+                console.log("All promises resolved:", results);
+            })
+            .catch((error) => {
+                console.error("One or more promises failed:", error);
+            });
+    
+        //Promise.all() 会等待所有传入的 Promise 都完成（无论成功还是失败）。
+        //如果其中一个 Promise 失败，Promise.all() 会立刻失败，并返回错误。
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num = 123;
+      var str = "abcdef";
+      var bool = true;
+      var arr = [1, 2, 3, 4];
+      var obj = { name: "wenzi", age: 25 };
+      var func = function () {
+        console.log("this is function");
+      };
+      var und = undefined;
+      var nul = null;
+      var date = new Date();
+      var reg = /^[a-zA-Z]{5,20}$/;
+      var error = new Error();
+      //number,string,boolean,function, undefined 用typeof
+      console.log("num", typeof num); // number
+      console.log("str", typeof str); // string
+      console.log("bool", typeof bool); // boolean
+      console.log("arr", typeof arr); // object
+      console.log("obj", typeof obj); // object
+      console.log("func", typeof func); // function
+      console.log("und", typeof und); // undefined
+      console.log("nul", typeof nul); // object
+      console.log("date", typeof date); // object
+      console.log("reg", typeof reg); // object
+      console.log("error", typeof error); // object
+      console.log(nul instanceof Object); // false
+      // instanceof不能判断值类型，但是引用类型可以，值得注意的是arr和obj在instanceof Object的时候的值都是true，
+      //这就导致判断是对象时不准确
+      console.log(num instanceof Number);
+
+      console.log(str instanceof String);
+
+      console.log(bool instanceof Boolean);
+
+      console.log(arr instanceof Array);
+
+      console.log(obj instanceof Object);
+
+      console.log(func instanceof Function);
+
+      console.log(date instanceof Date);
+
+      console.log(reg instanceof RegExp);
+
+      console.log(error instanceof Error);
+
+      console.log(nul instanceof Object);
+
+      // (2) Array.isArray(参数);  H5新增的方法  ie9以上版本支持
+    </script>
+  </body>
+</html>

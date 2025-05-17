@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.变量插入
+      const name = "小明";
+      const age = 18;
+      const str = `我叫${name}, 今年${age}岁`;
+
+      //2.表达式运算
+      const a = 10;
+      const b = 20;
+      const sum = `a + b = ${a + b}`; // 30
+
+      //3.多行字符串不用写 \n
+      const str2 = `我叫${name},
+    今年${age}岁`;
+
+      //4.在函数中拼接 HTML 结构
+
+      const createHTML = (name, age) => {
+        return `<div>
+        我叫${name}, 今年${age}岁
+        <p>我喜欢编程</p>
+        <p>我喜欢打篮球</p>
+        <p>我喜欢打游戏</p>
+        </div>`;
+      };
+
+      //5.搭配数组 .map() 渲染模板, use object array and map li join()
+      const users = [
+        { name: "小明", age: 18 },
+        { name: "小红", age: 20 },
+        { name: "小刚", age: 22 },
+      ];
+      const userList = users
+        .map((user) => `<li>我叫${user.name}, 今年${user.age}岁</li>`)
+        .join("");
+      const html = `<ul>${userList}</ul>`;
+      document.body.innerHTML = html;
+    </script>
+  </body>
+</html>
