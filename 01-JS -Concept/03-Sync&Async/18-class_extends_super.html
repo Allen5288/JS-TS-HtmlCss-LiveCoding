@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES6 类支持继承，你可以通过 extends 关键字创建子类，子类可以继承父类的属性和方法。
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            speak() {
+                console.log(`${this.name} makes a noise.`);
+            }
+        }
+        class Dog extends Animal {
+            speak() {
+                console.log(`${this.name} barks.`);
+            }
+        }
+        class Cat extends Animal {
+            speak() {
+                console.log(`${this.name} meows.`);
+            }
+        }
+        // 创建实例
+        const dog = new Dog('Rex');
+        const cat = new Cat('Whiskers');
+        dog.speak(); // Rex barks.
+        cat.speak(); // Whiskers meows.
+        // 使用 super 关键字调用父类的构造函数和方法
+        class Bird extends Animal {
+            constructor(name, color) {
+                super(name); // 调用父类的构造函数
+                this.color = color;
+            }
+
+            speak() {
+                super.speak(); // 调用父类的方法
+                console.log(`${this.name} is ${this.color}.`);
+            }
+        }
+        const parrot = new Bird('Polly', 'green');
+        parrot.speak(); // Polly makes a noise. Polly is green.
+        // 通过 super 关键字调用父类的方法
+        class Fish extends Animal {
+            constructor(name, size) {
+                super(name);
+                this.size = size;
+            }
+
+            speak() {
+                super.speak();
+                console.log(`${this.name} is ${this.size} cm long.`);
+            }
+        }
+        const goldfish = new Fish('Goldie', 5);
+        goldfish.speak(); // Goldie makes a noise. Goldie is 5 cm long.
+        
+     
+    </script>
+</body>
+</html>

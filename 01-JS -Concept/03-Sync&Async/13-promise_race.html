@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Promise.race()：用于并行执行多个异步操作，但它只会返回第一个完成的 Promise 的结果
+        const promise1 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Result from promise 1");
+            }, 1000);
+        });
+        const promise2 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Result from promise 2");
+            }, 2000);
+        });
+        const promise3 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Result from promise 3");
+            }, 3000);
+        });
+        const promise4 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject("Error from promise 4");
+            }, 1500);
+        });
+
+        Promise.race([promise1, promise2, promise3, promise4])
+            .then((result) => {
+                console.log("First promise resolved:", result); // output: "First promise resolved: Result from promise 1"
+            })
+            .catch((error) => {
+                console.error("First promise rejected:", error);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 以前this的指向：  谁调用的这个函数，this 就指向谁
+      function fn() {
+        console.log(this); // window
+      }
+
+      const obkj = {
+        name: "obj",
+        sayHi: function () {
+          console.log(this); // obj
+        },
+      };
+
+      // 2. 箭头函数的this  箭头函数的 this 是继承自它“定义时”所在的上一层作用域的 this，而不是调用时决定的
+      const obj2 = {
+        name: "obj2",
+        sayHi: function () {
+          console.log(this); // obj2
+          let i = 19;
+          const count = () => {
+            console.log(this); // window
+            console.log(i); // 19
+          };
+        },
+      };
+    </script>
+  </body>
+</html>

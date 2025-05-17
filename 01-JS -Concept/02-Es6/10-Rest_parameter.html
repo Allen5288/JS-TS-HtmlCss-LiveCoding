@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 剩余参数必须写在最后一个形参的位置
+      function fn(x, y, ...rest) {
+        console.log(x); // 1
+        console.log(y); // 2
+        console.log(rest); // [3, 4, 5]
+      }
+      fn(1, 2, 3, 4, 5);
+      // 1. 剩余参数的作用是将函数的多余参数收集到一个数组中
+      // 2. 剩余参数必须写在最后一个形参的位置
+      // 3. 剩余参数的语法是三个点(...)加上一个变量名
+      // 4. 剩余参数的变量名可以是任意合法的变量名
+      // 5. 剩余参数的变量名不能是关键字
+      // 6. 剩余参数的变量名不能是保留字
+      // 7. 剩余参数的变量名不能是数字
+      // 8. 剩余参数的变量名不能是布尔值
+      // 9. 剩余参数的变量名不能是null
+      // 10. 剩余参数的变量名不能是undefined
+      // 11. 剩余参数的变量名不能是对象
+      // 12. 剩余参数的变量名不能是数组
+      // 13. 剩余参数的变量名不能是函数
+      // 14. 剩余参数的变量名不能是正则表达式
+      // 15. 剩余参数的变量名不能是日期对象
+      // 16. 剩余参数的变量名不能是错误对象
+      // 17. 剩余参数的变量名不能是Map对象
+      // 18. 剩余参数的变量名不能是Set对象
+
+   
+    </script>
+  </head>
+  <body></body>
+</html>

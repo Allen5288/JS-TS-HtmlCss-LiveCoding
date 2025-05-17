@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise.all() Example</title>
+</head>
+<body>
+  <div id="user-info"></div>
+  <div id="posts-info"></div>
+  <div id="comments-info"></div>
+
+  <script>
+    //获取多个用户的数据
+    //需要从不同的 API 获取用户信息、文章列表和评论列表。在所有请求都成功返回后，我们可以统一处理并显示这些数据。
+    // 模拟 API 请求
+    function fetchUser() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ id: 1, name: "John Doe" });
+        }, 1000);
+      });
+    }
+    function fetchPosts() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve([
+            { id: 1, title: "Post 1" },
+            { id: 2, title: "Post 2" },
+          ]);
+        }, 2000);
+      });
+    }
+    function fetchComments() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve([
+            { id: 1, text: "Comment 1" },
+            { id: 2, text: "Comment 2" },
+          ]);
+        }, 1500);
+      });
+    }
+
+    // 使用 Promise.all() 来并行请求多个 API
+   
+    Promise.all([fetchUser(), fetchPosts(), fetchComments()])
+      .then(([user, posts, comments]) => {
+        document.getElementById("user-info").innerText = `User: ${user.name}`;
+        document.getElementById("posts-info").innerText = `Posts: ${posts.map(post => post.title).join(", ")}`;
+        document.getElementById("comments-info").innerText = `Comments: ${comments.map(comment => comment.text).join(", ")}`;
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+</body>
+</html>

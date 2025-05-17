@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise.race() Timeout</title>
+  </head>
+  <body>
+    <p id="result">Loading...</p>
+
+    <script>
+      // 模拟一个延时的Fake API请求
+      const fetchData = (delay) => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(`Data fetched after ${delay} ms`);
+          }, delay);
+        });
+      };
+      // 超时控制的函数
+
+      const fetchWithTimeout = (request, timeout) => {
+        const timeoutPromise = new Promise((_, reject) => {
+          setTimeout(() => {
+            reject(new Error("Request timed out"));
+          }, timeout);
+        });
+        return Promise.race([request, timeoutPromise]);
+      };
+
+      fetchWithTimeout(fetchData(3000), 2000)
+        .then((result) => {
+          document.getElementById("result").innerText = result;
+        })
+        .catch((error) => {
+          document.getElementById("result").innerText = error.message;
+        });
+    </script>
+  </body>
+</html>

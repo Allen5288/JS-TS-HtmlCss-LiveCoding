@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07-history对象</title>
+    <style>
+      .page {
+        display: none;
+      }
+
+      .active {
+        display: block;
+      }
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body data-path="/home">
+    <h2>SPA</h2>
+    <button>Home</button>
+    <button>About us</button>
+    <div id="home" class="page active">Welcome to home page</div>
+    <div id="about" class="page">About us content</div>
+
+    <script>
+      // Current virtual path
+      let currentPath = "/home";
+
+      function goTo(path) {
+        currentPath = path;
+        // Store the path in a data attribute instead of changing URL
+        document.body.dataset.path = path;
+        showPage(path);
+        console.log("Navigation: Current path is", path);
+      }
+
+      // Update event listeners to use goTo function
+      document
+        .querySelector("button:nth-of-type(1)")
+        .addEventListener("click", () => goTo("/home"));
+      document
+        .querySelector("button:nth-of-type(2)")
+        .addEventListener("click", () => goTo("/about"));
+
+      function showPage(path) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active");
+        });
+
+        if (path === "/about") {
+          document.getElementById("about").classList.add("active");
+        } else {
+          document.getElementById("home").classList.add("active");
+        }
+      }
+
+      // Add keyboard navigation for back/forward simulation
+      document.addEventListener("keydown", function(e) {
+        // Pressing Alt+Left Arrow (back) or Alt+Right Arrow (forward)
+        if (e.altKey) {
+          if (e.key === "ArrowLeft") {
+            // Simulate back - toggle between paths
+            goTo(currentPath === "/home" ? "/about" : "/home");
+          } else if (e.key === "ArrowRight") {
+            // Simulate forward - toggle between paths
+            goTo(currentPath === "/home" ? "/about" : "/home");
+          }
+        }
+      });
+
+      // page first load
+      goTo("/home");
+    </script>
+  </body>
+</html>

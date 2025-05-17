@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 嵌套解构
+      const obj = {
+        name: "obj",
+        age: 18,
+        address: {
+          city: "Beijing",
+          country: "China",
+        },
+      };
+      // 1. 嵌套解构
+
+      const {
+        address: { city, country },
+      } = obj; // 嵌套解构
+      console.log(city, country); // 输出: Beijing China
+
+      //从函数返回多个值, 返回一个对象
+      function getUser() {
+        return {
+          name: "obj",
+          age: 18,
+          address: {
+            city: "Beijing",
+            country: "China",
+          },
+        };
+      }
+
+      const user = getUser(); // 调用函数并获取用户信息
+      const {
+        address: { city: userCity, country: userCountry },
+      } = user; // 嵌套解构并重命名变量
+      console.log(userCity, userCountry); // 输出: Beijing China
+    </script>
+  </body>
+</html>

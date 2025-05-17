@@ -1,0 +1,699 @@
+// this file is used to demonstrate all the flexbox concept in HTML and CSS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Study Material</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #0066cc;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .concept {
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .demo-container {
+            border: 2px solid #0066cc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .flex-container {
+            display: flex;
+            background-color: #f8f8f8;
+            margin-bottom: 10px;
+            min-height: 100px;
+            padding: 10px;
+        }
+        
+        .flex-item {
+            padding: 15px;
+            background-color: #0066cc;
+            color: white;
+            margin: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .property-value {
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            margin-bottom: 15px;
+        }
+        
+        .controls button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .controls button:hover {
+            background-color: #004c99;
+        }
+        
+        /* Specific item styles for demonstrations */
+        .item-tall {
+            height: 120px;
+        }
+        
+        .item-wide {
+            width: 150px;
+        }
+        
+        .item-small {
+            font-size: 0.8em;
+        }
+        
+        .item-large {
+            font-size: 1.5em;
+        }
+        
+        .order-demo .flex-item {
+            width: 50px;
+        }
+        
+        /* Color variations for items */
+        .alt1 { background-color: #3498db; }
+        .alt2 { background-color: #9b59b6; }
+        .alt3 { background-color: #e74c3c; }
+        .alt4 { background-color: #27ae60; }
+        .alt5 { background-color: #f1c40f; }
+    </style>
+</head>
+<body>
+    <h1>CSS Flexbox Complete Study Guide</h1>
+    
+    <section id="introduction">
+        <h2>Introduction to Flexbox</h2>
+        <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.</p>
+    </section>
+    
+    <section id="basic-concepts">
+        <h2>Basic Flexbox Concepts</h2>
+        
+        <div class="concept">
+            <h3>Creating a Flex Container</h3>
+            <div class="description">
+                <p>A flex container is created by setting the <code>display</code> property to <code>flex</code> or <code>inline-flex</code>.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="flex-direction">
+        <h2>Flex Direction</h2>
+        <div class="description">
+            <p>The <code>flex-direction</code> property specifies the direction of the flexible items inside the flex container.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-direction: row (default)</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-direction: row;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-direction: row-reverse</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-direction: row-reverse;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-direction: column</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-direction: column;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-direction: column-reverse</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-direction: column-reverse;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="justify-content">
+        <h2>Justify Content</h2>
+        <div class="description">
+            <p>The <code>justify-content</code> property aligns flex items along the main axis of the current line of the flex container.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>justify-content: flex-start (default)</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: flex-start;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>justify-content: flex-end</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: flex-end;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>justify-content: center</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: center;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>justify-content: space-between</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: space-between;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>justify-content: space-around</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: space-around;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>justify-content: space-evenly</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: space-evenly;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="align-items">
+        <h2>Align Items</h2>
+        <div class="description">
+            <p>The <code>align-items</code> property aligns flex items along the cross axis of the current line of the flex container.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>align-items: stretch (default)</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="align-items: stretch; height: 150px;">
+                    <div class="flex-item" style="height: auto;">Item 1</div>
+                    <div class="flex-item" style="height: auto;">Item 2</div>
+                    <div class="flex-item" style="height: auto;">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-items: flex-start</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="align-items: flex-start; height: 150px;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item item-tall">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-items: flex-end</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="align-items: flex-end; height: 150px;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item item-tall">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-items: center</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="align-items: center; height: 150px;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item item-tall">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-items: baseline</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="align-items: baseline; height: 150px;">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item item-large">Item 2</div>
+                    <div class="flex-item item-small">Item 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="flex-wrap">
+        <h2>Flex Wrap</h2>
+        <div class="description">
+            <p>The <code>flex-wrap</code> property specifies whether the flex items should wrap or not if there is not enough room for them on one flex line.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-wrap: nowrap (default)</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: nowrap; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-wrap: wrap</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-wrap: wrap-reverse</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap-reverse; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="align-content">
+        <h2>Align Content</h2>
+        <div class="description">
+            <p>The <code>align-content</code> property aligns a flex container's lines within the flex container when there is extra space on the cross-axis.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>align-content: stretch (default)</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; align-content: stretch; height: 250px; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                    <div class="flex-item item-wide">Item 4</div>
+                    <div class="flex-item item-wide">Item 5</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-content: flex-start</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; align-content: flex-start; height: 250px; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                    <div class="flex-item item-wide">Item 4</div>
+                    <div class="flex-item item-wide">Item 5</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-content: flex-end</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; align-content: flex-end; height: 250px; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                    <div class="flex-item item-wide">Item 4</div>
+                    <div class="flex-item item-wide">Item 5</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-content: center</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; align-content: center; height: 250px; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                    <div class="flex-item item-wide">Item 4</div>
+                    <div class="flex-item item-wide">Item 5</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-content: space-between</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; align-content: space-between; height: 250px; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                    <div class="flex-item item-wide">Item 4</div>
+                    <div class="flex-item item-wide">Item 5</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-content: space-around</h3>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; align-content: space-around; height: 250px; width: 300px;">
+                    <div class="flex-item item-wide">Item 1</div>
+                    <div class="flex-item item-wide">Item 2</div>
+                    <div class="flex-item item-wide">Item 3</div>
+                    <div class="flex-item item-wide">Item 4</div>
+                    <div class="flex-item item-wide">Item 5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="flex-item-properties">
+        <h2>Flex Item Properties</h2>
+        
+        <div class="concept">
+            <h3>order</h3>
+            <div class="description">
+                <p>The <code>order</code> property specifies the order of a flexible item relative to the other flex items inside the same container.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container order-demo">
+                    <div class="flex-item" style="order: 3;">3</div>
+                    <div class="flex-item" style="order: 1;">1</div>
+                    <div class="flex-item" style="order: 4;">4</div>
+                    <div class="flex-item" style="order: 2;">2</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-grow</h3>
+            <div class="description">
+                <p>The <code>flex-grow</code> property specifies how much a flex item will grow relative to the other flex items inside the same container.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container">
+                    <div class="flex-item" style="flex-grow: 1;">grow: 1</div>
+                    <div class="flex-item" style="flex-grow: 2;">grow: 2</div>
+                    <div class="flex-item" style="flex-grow: 1;">grow: 1</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-shrink</h3>
+            <div class="description">
+                <p>The <code>flex-shrink</code> property specifies how much a flex item will shrink relative to the other flex items inside the same container.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container" style="width: 350px;">
+                    <div class="flex-item item-wide" style="flex-shrink: 0;">shrink: 0</div>
+                    <div class="flex-item item-wide" style="flex-shrink: 1;">shrink: 1</div>
+                    <div class="flex-item item-wide" style="flex-shrink: 2;">shrink: 2</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex-basis</h3>
+            <div class="description">
+                <p>The <code>flex-basis</code> property specifies the initial size of a flex item before growing or shrinking.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container">
+                    <div class="flex-item" style="flex-basis: 100px;">basis: 100px</div>
+                    <div class="flex-item" style="flex-basis: 200px;">basis: 200px</div>
+                    <div class="flex-item" style="flex-basis: auto;">basis: auto</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>flex (shorthand)</h3>
+            <div class="description">
+                <p>The <code>flex</code> property is a shorthand for <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code>.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container">
+                    <div class="flex-item" style="flex: 1 1 100px;">flex: 1 1 100px</div>
+                    <div class="flex-item" style="flex: 2 1 100px;">flex: 2 1 100px</div>
+                    <div class="flex-item" style="flex: 0 0 auto;">flex: 0 0 auto</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>align-self</h3>
+            <div class="description">
+                <p>The <code>align-self</code> property specifies the alignment for a specific flex item inside the container, overriding the <code>align-items</code> value.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container" style="height: 150px; align-items: center;">
+                    <div class="flex-item" style="align-self: flex-start;">flex-start</div>
+                    <div class="flex-item">center (default)</div>
+                    <div class="flex-item" style="align-self: flex-end;">flex-end</div>
+                    <div class="flex-item" style="align-self: stretch; height: auto;">stretch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="common-use-cases">
+        <h2>Common Use Cases</h2>
+        
+        <div class="concept">
+            <h3>Perfectly Centered Content</h3>
+            <div class="description">
+                <p>Center content both horizontally and vertically.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: center; align-items: center; height: 200px;">
+                    <div class="flex-item">Centered Item</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>Navigation Bar</h3>
+            <div class="description">
+                <p>A common layout pattern for navigation bars.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container" style="justify-content: space-between; background-color: #333;">
+                    <div class="flex-item" style="background-color: transparent;">Logo</div>
+                    <div style="display: flex;">
+                        <div class="flex-item alt1">Home</div>
+                        <div class="flex-item alt2">About</div>
+                        <div class="flex-item alt3">Services</div>
+                        <div class="flex-item alt4">Contact</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>Card Layout</h3>
+            <div class="description">
+                <p>A flexible card layout that adapts to available space.</p>
+            </div>
+            <div class="demo-container">
+                <div class="flex-container" style="flex-wrap: wrap; justify-content: space-around;">
+                    <div style="flex: 0 1 200px; margin: 10px; display: flex; flex-direction: column; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;">
+                        <div style="background-color: #3498db; color: white; padding: 15px; text-align: center;">Card Header</div>
+                        <div style="padding: 15px; flex-grow: 1;">Card content goes here. This is the flexible area of the card.</div>
+                        <div style="background-color: #f5f5f5; padding: 10px; text-align: center;">Card Footer</div>
+                    </div>
+                    
+                    <div style="flex: 0 1 200px; margin: 10px; display: flex; flex-direction: column; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;">
+                        <div style="background-color: #9b59b6; color: white; padding: 15px; text-align: center;">Card Header</div>
+                        <div style="padding: 15px; flex-grow: 1;">Card with more content. The card will expand to fit the content.</div>
+                        <div style="background-color: #f5f5f5; padding: 10px; text-align: center;">Card Footer</div>
+                    </div>
+                    
+                    <div style="flex: 0 1 200px; margin: 10px; display: flex; flex-direction: column; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;">
+                        <div style="background-color: #e74c3c; color: white; padding: 15px; text-align: center;">Card Header</div>
+                        <div style="padding: 15px; flex-grow: 1;">Short card.</div>
+                        <div style="background-color: #f5f5f5; padding: 10px; text-align: center;">Card Footer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="concept">
+            <h3>Holy Grail Layout</h3>
+            <div class="description">
+                <p>A classic web layout with header, footer, main content, and two sidebars.</p>
+            </div>
+            <div class="demo-container">
+                <div style="display: flex; flex-direction: column; min-height: 400px;">
+                    <!-- Header -->
+                    <header style="background-color: #3498db; padding: 20px; color: white; text-align: center;">Header</header>
+                    
+                    <!-- Main content area with sidebars -->
+                    <div style="display: flex; flex: 1;">
+                        <!-- Left sidebar -->
+                        <nav style="background-color: #9b59b6; padding: 20px; flex: 0 0 150px; color: white;">
+                            Left Sidebar
+                        </nav>
+                        
+                        <!-- Main content -->
+                        <main style="background-color: #f5f5f5; padding: 20px; flex: 1;">
+                            Main Content Area
+                        </main>
+                        
+                        <!-- Right sidebar -->
+                        <aside style="background-color: #e74c3c; padding: 20px; flex: 0 0 150px; color: white;">
+                            Right Sidebar
+                        </aside>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <footer style="background-color: #2c3e50; padding: 20px; color: white; text-align: center;">Footer</footer>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="responsive-flexbox">
+        <h2>Responsive Design with Flexbox</h2>
+        <div class="description">
+            <p>Flexbox can be combined with media queries to create responsive layouts.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>Responsive Card Layout</h3>
+            <p>Resize your browser window to see how the cards adjust.</p>
+            <style>
+                .responsive-card-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                
+                .responsive-card {
+                    flex: 1 1 300px;
+                    margin: 10px;
+                    background-color: #f5f5f5;
+                    padding: 20px;
+                    border-radius: 5px;
+                }
+                
+                @media (max-width: 768px) {
+                    .responsive-card {
+                        flex: 1 1 100%;
+                    }
+                }
+            </style>
+            <div class="demo-container">
+                <div class="responsive-card-container">
+                    <div class="responsive-card">
+                        <h4>Card 1</h4>
+                        <p>This card will adjust its width based on the screen size.</p>
+                    </div>
+                    <div class="responsive-card">
+                        <h4>Card 2</h4>
+                        <p>On smaller screens, these cards will stack vertically.</p>
+                    </div>
+                    <div class="responsive-card">
+                        <h4>Card 3</h4>
+                        <p>Flexbox makes it easy to create responsive layouts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="browser-support">
+        <h2>Browser Support</h2>
+        <p>Flexbox is supported in all modern browsers:</p>
+        <ul>
+            <li>Chrome 29+</li>
+            <li>Firefox 22+</li>
+            <li>Safari 6.1+</li>
+            <li>Edge 12+</li>
+            <li>Opera 12.1+</li>
+            <li>iOS Safari 7.1+</li>
+            <li>Android Browser 4.4+</li>
+        </ul>
+    </section>
+</body>
+</html>

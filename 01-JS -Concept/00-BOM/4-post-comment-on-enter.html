@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  // post comment on enter
+  <div>
+    <input type="text" id="comment" placeholder="Enter your comment">
+    <button id="post">Post</button>
+    <div id="comments"></div>
+  </div>
+  <script>
+    const commentInput = document.getElementById('comment');
+    const postButton = document.getElementById('post');
+    const commentsDiv = document.getElementById('comments');
+
+    function postComment() {
+      const commentText = commentInput.value;
+      if (commentText) {
+        const commentElement = document.createElement('p');
+        commentElement.textContent = commentText;
+        commentsDiv.appendChild(commentElement);
+        commentInput.value = '';
+      }
+    }
+
+    postButton.addEventListener('click', postComment);
+    commentInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        postComment();
+      }
+    });
+  </script>
+</body>
+</html>
