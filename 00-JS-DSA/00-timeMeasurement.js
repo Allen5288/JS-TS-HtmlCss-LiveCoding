@@ -6,6 +6,7 @@ const functionToMeasure = (array) => {
   }
   return sum;
 }
+//time complexity: O(n)
 
 measureTime(functionToMeasure);
 
