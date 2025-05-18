@@ -5,6 +5,8 @@
 1. Create array with default value
 
 ```javascript
+
+
 let prefixXOR = new Array(arr.length + 1).fill(0);
 
 const dp = Array.from({ length: row }, () => Array(col).fill(0));
@@ -15,6 +17,8 @@ let forWardCnt = new Array(n).fill(null).map(() => [0, 0]);
 
 // length's array with set
 let rows = Array.from({ length: 9 }, () => new Set());
+
+let uniqueArr = Array.from(new Set(inputArr))
 ```
 
 2. String to Array
@@ -40,6 +44,18 @@ Array.from(
 
 ## 1.2 Array Operation
 
+### 0. Basic Operation
+
+```js
+Object Person = {name: "allen", age: 11};
+let arr = ["apple", "banana", "cherry", Person];
+
+arr.push("orange");
+arr.pop();
+arr.unshift("orange");
+arr.shift();
+```
+
 ### 1. Cut/change arr(slice splice)
 
 Get previous index arr to a new
@@ -53,9 +69,22 @@ Get previous index arr to a new
 array.slice(startIndex, endIndex)
 string.slice(startIndex, endIndex)
 
-let arr = [10, 20, 30, 40, 50];
-let newArr = arr.slice(1, 4);  // Extract elements from index 1 to 3 (end index 4 is not included)
-console.log(newArr);  // Output: [20, 30, 40]
+// slice
+const arr = [1, 2, 3, 4, 5];
+const arr2 = arr.slice(0, 3);
+console.log(arr2); // [1, 2, 3]
+
+// slice with 1 argument
+const arr3 = arr.slice(2);
+console.log(arr3); // [3, 4, 5]
+
+// slice with negative index
+const arr4 = arr.slice(-3);
+console.log(arr4); // [3, 4, 5]
+
+// slice with negative index and 1 argument
+const arr5 = arr.slice(-3, -1);
+console.log(arr5); // [3, 4]
 
 let str = "Hello, world!";
 let slicedStr = str.slice(7, 12);  // Extract substring from index 7 to 11
@@ -72,9 +101,26 @@ console.log(slicedStr);  // Output: "world"
 array.splice(startIndex, deleteCount, item1, item2, ..., itemN)
 
 // Remove:
-let arr = [10, 20, 30, 40, 50];
-arr.splice(2, 2);  // Start at index 2, remove 2 elements
-console.log(arr);  // Output: [10, 20, 50]
+// splice
+const arr6 = [1, 2, 3, 4, 5];
+const arr7 = arr6.splice(0, 3);
+console.log(arr6); // [4, 5]
+console.log(arr7); // [1, 2, 3]
+// splice with 1 argument
+const arr8 = [1,2,3,4,5];
+const arr9 = arr8.splice(2);
+console.log(arr8); // [1, 2]
+console.log(arr9); // [3, 4, 5]
+// splice with negative index
+const arr10 = [1, 2, 3, 4, 5];
+const arr11 = arr10.splice(-3);
+console.log(arr10); // [1, 2]
+console.log(arr11); // [3, 4, 5]
+// splice with negative index and 1 argument
+const arr12 = [1, 2, 3, 4, 5];
+const arr13 = arr12.splice(-3, 1);
+console.log(arr12); // [1, 2, 4, 5]
+console.log(arr13); // [3]
 
 // Add
 let arr = [10, 20, 30];
@@ -174,6 +220,80 @@ const uniqueArr = [...new Set(arr)];
 ```js
 res.includes(part);
 res = res.replace(part, "");
+```
+
+### 10. map(), filter(), some(), every(), find()
+
+```js
+const numbers = [1,2,3,4,5];
+
+// map: Describes the transformation logic and return type (new array)
+const newNums = numbers.map((item, index, array) => {
+    return item + 5;
+});
+
+// filter: Explains the filtering condition and result (new array of matches)
+const newNums = numbers.filter((item, index, array) => {
+    return item > 5;
+});
+
+// some: Highlights the "at least one" semantics and boolean return value
+const newNums = numbers.some((item, index, array) => {
+    return item > 3;
+});
+
+// every: Clarifies the "all elements" check and boolean result
+const newNums = numbers.every((item, index, array) => {
+    return item > 3;
+});
+
+// find: Indicates the "first matching element" behavior and possible return values
+const newNums = numbers.find((item, index, array) => {
+    return item > 3;
+});
+```
+
+### 11. concat(), reverse()
+
+```js
+nums.concat(nums1, nums2);
+
+nums.reverse();
+```
+
+### 12. fill(), flat()
+
+fill()
+
+```js
+// The fill() method fills the elements in an array with a static value.
+const array1 = [1, 2, 3, 4, 5];
+Fill all elements with 0
+array1.fill(0);
+console.log(array1); // [0, 0, 0, 0, 0]
+
+// Fill from index 1 to 3 with 0
+const array2 = [1, 2, 3, 4, 5];
+array2.fill(0, 1, 4);
+console.log(array2); // [1, 0, 0, 0, 5]
+```
+
+flat()
+
+```js
+// flat
+const arr = [1, 2, [3, 4], 5];
+const flatArr = arr.flat();
+console.log(flatArr); // [1, 2, 3, 4, 5]
+
+// flat with depth
+const arr2 = [1, 2, [3, 4, [5, 6]]];
+const flatArr2 = arr2.flat(2);
+console.log(flatArr2); // [1, 2, 3, 4, 5, 6]
+
+const arr3 = [1, 2, [3, 4], [5, [6, 7]]];
+const flatArr3 = arr3.flat(1);
+console.log(flatArr3); // [1, 2, 3, 4, 5, [6, 7]]
 ```
 
 ## 1.3 Sort
