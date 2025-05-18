@@ -15,6 +15,8 @@ function isAnagram(s, t) {
 
     return true;
 }
+// time complexity: O(n)
+// space complexity: O(n)
 
 function isAnagramMethod2(s, t) {
     if (s.length !== t.length) return false;
@@ -24,6 +26,8 @@ function isAnagramMethod2(s, t) {
 
     return sortedS === sortedT;
 }
+// time complexity: O(n log n)
+// space complexity: O(n)
 
 // Test cases for the isAnagram function
 function testAnagram() {
