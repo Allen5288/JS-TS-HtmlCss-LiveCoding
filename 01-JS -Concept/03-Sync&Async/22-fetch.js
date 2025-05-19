@@ -12,6 +12,15 @@ const fecthData = async (url) => {
   }
 };
 
+// fetch from url: https://api.example.com/data
+fecthData("https://api.example.com/data")
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+
 const postData = async (url, data) => {
   try {
     const response = await fetch(url, {
