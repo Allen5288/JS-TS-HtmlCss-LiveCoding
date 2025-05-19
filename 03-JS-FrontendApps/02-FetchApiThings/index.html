@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            overflow: auto;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            min-height: 100px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch API Interview Examples</h1>
+
+    <section>
+        <h2>1. Basic Fetch API</h2>
+        <button id="basicFetchBtn">Run Basic Fetch Example</button>
+        <button id="fetchPostBtn">Run POST Example</button>
+        <button id="fetchErrorBtn">Test Error Handling</button>
+    </section>
+
+    <section>
+        <h2>2. Nested Data Extraction</h2>
+        <button id="nestedDataBtn">Extract Nested Data</button>
+        <button id="deepNestedBtn">Extract Deep Nested Data</button>
+    </section>
+
+    <section>
+        <h2>3. Recursive Fetching</h2>
+        <button id="recursiveFetchBtn">Run Recursive Fetch</button>
+        <button id="paginationBtn">Handle Pagination</button>
+    </section>
+
+    <section>
+        <h2>4. Batch Processing</h2>
+        <button id="parallelFetchBtn">Parallel Fetch (Promise.all)</button>
+        <button id="batchProcessingBtn">Controlled Batch Processing</button>
+        <button id="sequentialBatchBtn">Sequential Batch Processing</button>
+    </section>
+
+    <section>
+        <h2>Results:</h2>
+        <div id="results">Run any example to see results here...</div>
+    </section>
+
+    <script src="fetchApiBasics.js"></script>
+    <script src="nestedDataExtraction.js"></script>
+    <script src="recursiveFetching.js"></script>
+    <script src="batchProcessing.js"></script>
+    <script>
+        // Initialize all button listeners after DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Connect all button event listeners from imported scripts
+            if (typeof initFetchBasicsListeners === 'function') initFetchBasicsListeners();
+            if (typeof initNestedDataListeners === 'function') initNestedDataListeners();
+            if (typeof initRecursiveFetchListeners === 'function') initRecursiveFetchListeners();
+            if (typeof initBatchProcessingListeners === 'function') initBatchProcessingListeners();
+        });
+    </script>
+</body>
+</html>
