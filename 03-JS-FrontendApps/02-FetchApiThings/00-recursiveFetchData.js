@@ -56,3 +56,20 @@ const fetchDataRecursively = async (url, page = 1) => {
     throw error;
   }
 };
+
+// fetching data from endpoints, handling promises, extarcting data from nested objects and recursive function
+const fetchDataFromEndpoints = async (endpoints) => {
+  try {
+    const results = await Promise.all(
+      endpoints.map((endpoint) => fetch(endpoint).then((response) => response.json()))
+    );
+
+    const extractedData = results.map((data) => {
+      return data.map((item) => item.title);
+    });
+
+    return extractedData;
+  } catch (error) {
+    console.error("Error fetching data from endpoints:", error);
+  }
+};

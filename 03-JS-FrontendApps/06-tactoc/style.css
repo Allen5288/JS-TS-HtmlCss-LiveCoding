@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+}
+
+#resetBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#resetBtn:hover {
+    background-color: #45a049;
+}
+
+.game-container {
+    margin-bottom: 1.5rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 0 auto;
+}
+
+.cell {
+    background-color: #f9f9f9;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+.cell:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+}
+
+.cell.x {
+    color: #e74c3c;
+}
+
+.cell.o {
+    color: #3498db;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.score-box {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 45%;
+}
+
+.player {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.score {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Animation for winning cells */
+@keyframes winAnimation {
+    0% { background-color: #f9f9f9; }
+    50% { background-color: #c8e6c9; }
+    100% { background-color: #f9f9f9; }
+}
+
+.cell.win {
+    animation: winAnimation 1s ease infinite;
+}
