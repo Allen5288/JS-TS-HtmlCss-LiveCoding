@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Power Plant Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Simple Power Distribution Simulation</h1>
+    <p>A simplified model of a power plant distributing electricity to neighborhoods.</p>
+    
+    <div class="container">
+        <div class="controls">
+            <button id="startBtn">Start Simulation</button>
+            <button id="stopBtn" disabled>Stop Simulation</button>
+            <button id="outageBtn">Simulate Outage</button>
+            <div class="slider-container">
+                <label for="capacitySlider">Plant Capacity: <span id="capacityValue">1000</span> MW</label>
+                <input type="range" id="capacitySlider" min="500" max="1500" value="1000">
+            </div>
+        </div>
+        
+        <div class="plant-info">
+            <h2 id="plantName">Main Power Plant</h2>
+            <p>Capacity: <span id="plantCapacity">1000</span> MW</p>
+            <p>Total Demand: <span id="totalDemand">0</span> MW</p>
+            <p>Status: <span id="plantStatus" class="stable">STABLE</span></p>
+            
+            <div class="utilization-container">
+                <div class="utilization-label">Utilization:</div>
+                <div class="utilization-bar-container">
+                    <div id="utilizationBar" class="utilization-bar"></div>
+                </div>
+                <div id="utilizationText" class="utilization-value">0%</div>
+            </div>
+        </div>
+        
+        <h2>Neighborhoods</h2>
+        <div id="neighborhoods" class="neighborhoods-container"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
