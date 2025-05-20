@@ -7,11 +7,7 @@ function importantAction(userName) {
         resolve(`User ${userName} is logged in`);
       } else {
         reject("User not logged in");
-      }
-    }, 1000);
-  });
-}
-
+      } 
 function getUserData(userName) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

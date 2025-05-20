@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.game-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 450px;
+    text-align: center;
+}
+
+.game-header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#gameCanvas {
+    background-color: #222;
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+}
+
+.game-controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.game-info {
+    margin-top: 20px;
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.game-info h3 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.game-info p {
+    margin-bottom: 5px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+}
+
+.modal h2 {
+    color: #ff5252;
+    margin-bottom: 20px;
+}
+
+.modal p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#finalScore {
+    font-weight: bold;
+}
+
+#restartBtn {
+    background-color: #ff5252;
+}
+
+#restartBtn:hover {
+    background-color: #e04747;
+}
