@@ -17,6 +17,8 @@ function crawlJson(data, callback) {
     }
   }
 }
+// time performance for crawJson is: O(n)
+// space performance for crawJson is: O(n)
 
 // Reusable Callback Functions (remain the same)
 function createTypeCollector(targetType, collectionArray) {
