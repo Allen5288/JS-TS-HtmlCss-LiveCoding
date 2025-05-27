@@ -19,6 +19,23 @@ let forWardCnt = new Array(n).fill(null).map(() => [0, 0]);
 let rows = Array.from({ length: 9 }, () => new Set());
 
 let uniqueArr = Array.from(new Set(inputArr))
+
+const emptyArray = []; // 推荐方式
+const lengthArray = new Array(5); // [empty × 5]
+
+// 使用 fill() 方法
+const filledArray = new Array(5).fill(0); // [0, 0, 0, 0, 0]
+// 使用 Array.from()
+const fromArray = Array.from({ length: 5 }, () => 0); // [0, 0, 0, 0, 0]
+// 使用展开语法 + 索引
+const indexedArray = [...Array(5)].map((_, i) => i); // [0, 1, 2, 3, 4]
+
+const empty2DArray = Array.from({ length: 3 }, () => []); // [ [], [], [] ]
+const fixed2DArray = Array.from({ length: 3 }, () => new Array(3).fill(0));
+
+// 创建一个二维数组，每个子数组是一个 Set
+const set2DArray = Array.from({ length: 3 }, () => new Set());
+
 ```
 
 2. String to Array
@@ -508,6 +525,45 @@ const bracketPairs = {
 if (Object.values(bracketPairs).includes(char)) 
 ```
 
+```js
+let myObject = { name: "Alice", age: 30, city: "New York" };
+let emptyObject = {};
+
+// Access
+let personName = myObject.name;   // "Alice" (dot notation)
+let personAge = myObject["age"]; // 30 (bracket notation, useful for dynamic keys)
+
+// Modify/Add
+myObject.age = 31;                 // { name: "Alice", age: 31, city: "New York" }
+myObject["job"] = "Engineer";      // { ..., job: "Engineer" }
+
+// Delete
+delete myObject.city; // { name: "Alice", age: 31, job: "Engineer" }
+
+// Check existence
+if ("name" in myObject) {
+    console.log("Name property exists.");
+}
+if (myObject.hasOwnProperty("job")) { // Recommended for own properties
+    console.log("Job is an own property.");
+}
+
+// Iteration (ES6+)
+const keys = Object.keys(myObject);      // ["name", "age", "job"]
+const values = Object.values(myObject);  // ["Alice", 31, "Engineer"]
+const entries = Object.entries(myObject); // [["name", "Alice"], ["age", 31], ["job", "Engineer"]]
+
+keys.forEach(key => console.log(key, myObject[key]));
+for (const [key, value] of entries) { // Destructuring in for...of
+    console.log(`${key}: ${value}`);
+}
+
+// Merging Objects (ES6+)
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const merged = { ...obj1, ...obj2 }; // { a: 1, b: 3, c: 4 } (later properties overwrite earlier ones)
+```
+
 ## 1.8 Spread Operation
 
 ```js
@@ -554,7 +610,7 @@ greet(...people);  // Hello Alice, Bob, Charlie
 
 ## 5.1 Using set
 
-```javascript
+```javascript+ 
 let nums = [2, 5, 2, 4];
 let set = new Set(nums);
 // The Set object will automatically remove any duplicate values from the array. In your example, the array nums contains the following values: 2, 5, 2, and 4. After converting nums to a Set, set will contain only unique values: 2, 5, and 4.
@@ -613,6 +669,17 @@ stack.push(current);  // Push the current index to the stack
 ```
 
 # 8. Linked List
+
+```js
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null; // Points to the next node, null if it's the last
+    }
+}
+
+
+```
 
 # 9. Binary Tree
 
